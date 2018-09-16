@@ -1,0 +1,34 @@
+networks:
+    default:
+        ipam:
+            config:
+                - subnet: 10.5.0.0/16
+                  gateway: 10.5.0.1
+services:
+    nginx:
+        image: nginx:1.13
+        restart: always
+        ports:
+            - "80:80"
+        networks:
+            default:
+                ipv4_address: 10.5.0.3
+        volumes: 
+            - "./nginx/conf.d:/etc/nginx/conf.d"
+
+    testwebapp:
+        build: testwebapp
+        container_name: testwebapp
+        environment:
+            - CATALINA_OPTS=-Xmx12g -Xms12g -XX:MaxPermSize=4096m -XX:+CMSClassUnloadingEnabled -XX:+CMSPermGenSweepingEnabled -XX:+UseConcMarkSweepGC
+            - JVM_OPTS=-Xmx12g -Xms12g -XX:MaxPermSize=4096m -XX:+CMSClassUnloadingEnabled -XX:+CMSPermGenSweepingEnabled -XX:+UseConcMarkSweepGC
+            - JAVA_OPTS=
+        ports: 
+            - "8080"
+        networks:
+            default:
+                ipv4_address: 10.5.0.2
+        depends_on: 
+            - nginx
+        restart: always
+version: '2'

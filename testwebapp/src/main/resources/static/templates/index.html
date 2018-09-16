@@ -1,0 +1,35 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" ng-app="testWebapp">
+	<head>
+		<link rel="stylesheet" href="css/lib/angular/angular-material.css"/>
+	    <link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic"/>
+	    <link rel="stylesheet" type="text/css" href="css/lib/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/lib/fontawesome-webfont.eot"/>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+		<script type="text/javascript" src="js/applicationScripts.min.js"></script>
+
+		<script th-inline="javascript" type="text/javascript">
+			var configuration = {
+				applicationId: '${@configuration.baseUrl}',
+				urls: {
+					users: "api/users",
+					user: "api/users/user"
+				}
+			}
+		</script>
+
+		<meta charset="utf-8"/>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	</head>
+	<body>
+		<div ng-view="testWebapp">
+	    </div>
+	</body>
+</html>
