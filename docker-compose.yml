@@ -17,6 +17,21 @@ services:
         networks: 
             default:
                 ipv4_address: 10.5.0.3
+    postgres:
+        image: postgres:latest
+        container_name: postgres
+        restart: always
+        environment:
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_USER=postgres
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./postgres/sql:/docker-entrypoint-initdb.d
+            - ./postgres/data:/var/lib/postgresql/data
+        networks: 
+            default:
+                ipv4_address: 10.5.0.4
     # nginx:
     #     image: nginx:1.13
     #     restart: always
@@ -36,6 +51,9 @@ services:
             - CATALINA_OPTS=-Xmx12g -Xms12g -XX:MaxPermSize=4096m -XX:+CMSClassUnloadingEnabled -XX:+CMSPermGenSweepingEnabled -XX:+UseConcMarkSweepGC
             - JVM_OPTS=-Xmx12g -Xms12g -XX:MaxPermSize=4096m -XX:+CMSClassUnloadingEnabled -XX:+CMSPermGenSweepingEnabled -XX:+UseConcMarkSweepGC
             - JAVA_OPTS=
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://10.5.0.4:5432/testwebapp?user=testwebapp
+            - SPRING_DATASOURCE_USERNAME=testwebapp
+            - SPRING_DATASOURCE_PASSWORD=testwebapp
         ports: 
             - "8080:8080"
         networks:
@@ -43,5 +61,6 @@ services:
                 ipv4_address: 10.5.0.2
         depends_on: 
             - haproxy
+            - postgres
         restart: always
 version: '2'

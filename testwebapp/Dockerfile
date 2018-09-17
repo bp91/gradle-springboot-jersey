@@ -14,4 +14,4 @@ ENV JAVA_OPTS ""
 ENV JVM_OPTS ""
 ENV CATALINA_OPTS ""
 
-CMD sh /opt/tomcat/bin/catalina.sh start $JAVA_OPTS $JVM_OPTS $CATALINA_OPTS && touch /opt/tomcat/logs/testWebapp-0.0.1-SNAPSHOT.log && tail -f /opt/tomcat/logs/testWebapp-0.0.1-SNAPSHOT.log
+CMD sh /opt/tomcat/bin/catalina.sh start $JAVA_OPTS $JVM_OPTS $CATALINA_OPTS && touch /opt/tomcat/logs/testWebapp-0.0.1-SNAPSHOT.log && touch /opt/tomcat/logs/catalina.out && tail -f /opt/tomcat/logs/catalina.out
