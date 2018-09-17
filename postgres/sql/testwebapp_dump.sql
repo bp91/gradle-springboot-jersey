@@ -66,7 +66,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
--- Name: instr(character varying, character varying); Type: FUNCTION; Schema: public; Owner: csicrawler
+-- Name: instr(character varying, character varying); Type: FUNCTION; Schema: public; Owner: testwebapp
 --
 
 CREATE FUNCTION public.instr(character varying, character varying) RETURNS integer
@@ -81,10 +81,10 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.instr(character varying, character varying) OWNER TO csicrawler;
+ALTER FUNCTION public.instr(character varying, character varying) OWNER TO testwebapp;
 
 --
--- Name: instr(character varying, character varying, integer); Type: FUNCTION; Schema: public; Owner: csicrawler
+-- Name: instr(character varying, character varying, integer); Type: FUNCTION; Schema: public; Owner: testwebapp
 --
 
 CREATE FUNCTION public.instr(string character varying, string_to_search character varying, beg_index integer) RETURNS integer
@@ -128,10 +128,10 @@ END;
 $$;
 
 
-ALTER FUNCTION public.instr(string character varying, string_to_search character varying, beg_index integer) OWNER TO csicrawler;
+ALTER FUNCTION public.instr(string character varying, string_to_search character varying, beg_index integer) OWNER TO testwebapp;
 
 --
--- Name: instr(character varying, character varying, integer, integer); Type: FUNCTION; Schema: public; Owner: csicrawler
+-- Name: instr(character varying, character varying, integer, integer); Type: FUNCTION; Schema: public; Owner: testwebapp
 --
 
 CREATE FUNCTION public.instr(string character varying, string_to_search character varying, beg_index integer, occur_index integer) RETURNS integer
@@ -193,10 +193,10 @@ END;
 $$;
 
 
-ALTER FUNCTION public.instr(string character varying, string_to_search character varying, beg_index integer, occur_index integer) OWNER TO csicrawler;
+ALTER FUNCTION public.instr(string character varying, string_to_search character varying, beg_index integer, occur_index integer) OWNER TO testwebapp;
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: csicrawler
+-- Name: users; Type: TABLE; Schema: public; Owner: testwebapp
 --
 
 CREATE TABLE public.users (
