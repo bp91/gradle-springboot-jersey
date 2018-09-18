@@ -59,7 +59,12 @@ dependencies {
 }
 
 bootRun {
+	
 	dependsOn 'gruntExec'
+
+	if(project.hasProperty('args')) {
+        args project.args.split(',')
+    }
 }
 
 task gruntExec(type: Exec) {
