@@ -15,7 +15,7 @@ Java project structure for building Web Application using
 
 ## Override system properties; into testwebapp:
 
-`gradle bootRun -Pargs=--spring.datasource.url=jdbc:postgresql://10.5.0.4:5432/testwebapp?user=testwebapp,--Dspring.datasource.password=testwebapp`
+`gradle bootRun -Pargs=--spring.datasource.url=jdbc:postgresql://localhost:5432/testwebapp?user=testwebapp,--spring.datasource.password=testwebapp,--server.port=8081`
 
 ## Run with Docker-Compose:
 
