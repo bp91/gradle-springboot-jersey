@@ -54,6 +54,7 @@ dependencies {
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.0.5.RELEASE'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.0.5.RELEASE'
 	compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
+	compile group: 'org.flywaydb', name: 'flyway-gradle-plugin', version: '5.1.4'
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
