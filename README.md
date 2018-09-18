@@ -1,4 +1,4 @@
-# testWebapp
+# testwebapp
 
 Java project structure for building Web Application using
 
