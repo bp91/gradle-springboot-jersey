@@ -199,15 +199,15 @@ ALTER FUNCTION public.instr(string character varying, string_to_search character
 -- Name: users; Type: TABLE; Schema: public; Owner: testwebapp
 --
 
-CREATE TABLE public.users (
-    id serial NOT NULL,
-    name character varying(255),
-    surname character varying(255),
-    email character varying(255) NOT NULL
-);
+-- CREATE TABLE public.users (
+--     id serial NOT NULL,
+--     name character varying(255),
+--     surname character varying(255),
+--     email character varying(255) NOT NULL
+-- );
 
 
-ALTER TABLE public.users OWNER TO testwebapp;
+-- ALTER TABLE public.users OWNER TO testwebapp;
 
 --
 -- TOC entry 2848 (class 0 OID 24576)
@@ -222,8 +222,8 @@ ALTER TABLE public.users OWNER TO testwebapp;
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: testwebapp
 --
 
-ALTER TABLE ONLY public.users
-    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+-- ALTER TABLE ONLY public.users
+--     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
 
 
 --
