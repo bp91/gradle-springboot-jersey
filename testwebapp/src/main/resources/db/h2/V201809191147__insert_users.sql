@@ -1,0 +1,1 @@
+INSERT INTO users (creationtime,name,surname,email) VALUES ('2018-09-19 08:37:18.466773','Bruno','Pistone','brn.pistone@gmail.com');
