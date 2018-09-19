@@ -1,11 +1,4 @@
 buildscript {
-	// configurations {
-    //     classpath {
-    //         exclude group: 'ch.qos.logback', module: 'logback-classic'
-	// 		exclude group: 'org.slf4j'
-	// 		exclude group: 'log4j', module: 'log4j'
-    //     }
-    // }
 	ext {
 		springBootVersion = '2.0.5.RELEASE'
 	}
