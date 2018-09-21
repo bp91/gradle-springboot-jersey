@@ -54,8 +54,11 @@ services:
             - SPRING_DATASOURCE_URL=jdbc:postgresql://10.5.0.4:5432/testwebapp?user=testwebapp
             - SPRING_DATASOURCE_USERNAME=testwebapp
             - SPRING_DATASOURCE_PASSWORD=testwebapp
+            - SPRING_FLYWAY_LOCATIONS=classpath:/db/migration/postgresql
         ports: 
             - "8080:8080"
+        # volumes:
+        #     - ./webapps:/opt/tomcat/webapps/
         networks:
             default:
                 ipv4_address: 10.5.0.2
