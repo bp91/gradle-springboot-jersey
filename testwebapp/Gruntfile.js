@@ -83,14 +83,14 @@ module.exports = function (grunt) {
 				files: [
 					'src/main/webapp/css/less/*.less'
 				],
-				tasks: [ 'less:all' ],
+				tasks: ['less:all', 'copy:css'],
 				options: {
 					nospawn: true
 				}
 			},
 			js: {
-				files: ['src/main/webapp/js/**/*.js'],
-				tasks: ['concat', 'uglify']
+				files: ['src/main/webapp/js/app/**/*.js'],
+				tasks: ['concat', 'uglify', 'copy:js']
 			},
 			html: {
 				files: ['src/main/webapp/html/*.html'],
