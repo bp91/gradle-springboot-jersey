@@ -55,7 +55,6 @@ services:
             - SPRING_DATASOURCE_USERNAME=testwebapp
             - SPRING_DATASOURCE_PASSWORD=testwebapp
             - SPRING_FLYWAY_LOCATIONS=classpath:/db/migration/postgresql
-            - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQLDialect
         ports: 
             - "8080:8080"
         # volumes:

@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.google.common.collect.ImmutableMap;
 
-import it.testWebapp.model.User;
 import it.testWebapp.service.UserService;
 
 @RunWith(SpringRunner.class)
@@ -37,16 +36,21 @@ public class TestWebappApplicationTests {
 	@Test
 	public void checkUserBrunoTest() {
 		
-		List<User> users = this.userService.getUsers();
+		List<Map<String, Object>> users = this.userService.getUsers();
 		
 		String mapToCompare = "";
 		
-		for(User user : users) {
-			if(user.getEmail().equals("brn.pistone@gmail.com")) {
-				mapToCompare = user.getEmail();
+		for(Map<String, Object> map : users) {
+			if(map.containsValue("brn.pistone@gmail.com")) {
+				mapToCompare = map.toString();
 			}
 		}
 		
-		assertEquals(mapToCompare, "brn.pistone@gmail.com");
+		assertEquals(mapToCompare, ImmutableMap.of(
+				"SURNAME", "Pistone",
+				"CREATIONTIME", "2018-09-19 08:37:18.466773",
+				"ID", "1",
+				"EMAIL", "brn.pistone@gmail.com",
+				"NAME", "Bruno").toString());
 	}
 }
