@@ -20,3 +20,6 @@ CREATE TABLE public.users (
 
     CONSTRAINT users_pk PRIMARY KEY (email)
 );
+
+INSERT INTO public.users (creationtime,name,surname,email) VALUES (NOW(),'Bruno','Pistone','brn.pistone@gmail.com');
+INSERT INTO public.users (creationtime,name,surname,email) VALUES (NOW(),'Dragana','Vucinic','vucinic.dragana91@gmail.com');
