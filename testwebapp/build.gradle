@@ -20,7 +20,7 @@ apply plugin: 'maven'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-apply plugin: 'war'
+// apply plugin: 'war'
 
 group = 'it'
 version = '0.0.1-SNAPSHOT'
@@ -30,10 +30,10 @@ repositories {
 	mavenCentral()
 }
 
-configurations {
-	providedRuntime
-	compile.exclude module: "spring-boot-starter-tomcat"
-}
+// configurations {
+// 	providedRuntime
+// 	compile.exclude module: "spring-boot-starter-tomcat"
+// }
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-jersey')
@@ -52,7 +52,7 @@ dependencies {
 	compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
 	compile group: 'org.flywaydb', name: 'flyway-gradle-plugin', version: '5.1.4'
 	// providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
-	providedRuntime('org.springframework.boot:spring-boot-starter-jetty')
+	// providedRuntime('org.springframework.boot:spring-boot-starter-jetty')
 	// providedRuntime('org.springframework.boot:spring-boot-starter-hateoas')
 	testCompile('com.h2database:h2:1.4.197')
 	testCompile('org.springframework.boot:spring-boot-starter-test')

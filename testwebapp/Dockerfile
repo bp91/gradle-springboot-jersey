@@ -4,7 +4,7 @@ RUN chmod 775 /opt/tomcat/bin/catalina.sh
 
 RUN chown root:root /opt/tomcat/bin/catalina.sh
 
-COPY build/libs/*.war /tmp/webapps/
+COPY build/libs/*.jar /tmp/webapps/
 
 RUN cp -r /tmp/webapps/* /opt/tomcat/webapps/
 
