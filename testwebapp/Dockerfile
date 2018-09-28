@@ -1,17 +1,14 @@
-FROM bp91/ubuntu16.04-tomcat9-java8:latest
+FROM java:8-jdk-alpine
 
-RUN chmod 775 /opt/tomcat/bin/catalina.sh
+RUN apk update --no-progress && apk add --no-progress tzdata && cp /usr/share/zoneinfo/Europe/Rome /etc/localtime && echo "Europe/Rome" > /etc/timezone && apk del --no-progress tzdata
 
-RUN chown root:root /opt/tomcat/bin/catalina.sh
+VOLUME /tmp
 
-COPY build/libs/*.war /tmp/webapps/
+COPY build/libs/*.jar app.jar
 
-RUN cp -r /tmp/webapps/* /opt/tomcat/webapps/
+RUN addgroup -S -g 1000 toor && adduser -S -u 1000 -G toor toor
+RUN sh -c 'touch /app.jar' && chmod 644 /app.jar
 
-EXPOSE 8080
+USER root
 
-ENV JAVA_OPTS ""
-ENV JVM_OPTS ""
-ENV CATALINA_OPTS ""
-
-CMD sh /opt/tomcat/bin/catalina.sh start $JAVA_OPTS $JVM_OPTS $CATALINA_OPTS && touch /opt/tomcat/logs/testWebapp-0.0.1-SNAPSHOT.log && touch /opt/tomcat/logs/catalina.out && tail -f /opt/tomcat/logs/catalina.out
+ENTRYPOINT [ "java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar" ]
