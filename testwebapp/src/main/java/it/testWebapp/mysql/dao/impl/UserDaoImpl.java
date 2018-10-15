@@ -1,4 +1,4 @@
-package it.testWebapp.dao.impl;
+package it.testWebapp.mysql.dao.impl;
 
 import java.util.List;
 
@@ -9,14 +9,14 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import it.testWebapp.dao.UserDao;
 import it.testWebapp.model.User;
+import it.testWebapp.mysql.dao.UserDao;
 
 @Transactional
 @Repository
 public class UserDaoImpl implements UserDao {
 
-	@PersistenceContext	
+	@PersistenceContext(unitName="mysqlPU")
 	private EntityManager entityManager;
 	
 	@Override

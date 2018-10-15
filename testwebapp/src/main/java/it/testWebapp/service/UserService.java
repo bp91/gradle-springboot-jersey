@@ -4,8 +4,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import it.testWebapp.dao.UserDao;
+
 import it.testWebapp.model.User;
+import it.testWebapp.mysql.dao.UserDao;
 
 @Service
 @Transactional
