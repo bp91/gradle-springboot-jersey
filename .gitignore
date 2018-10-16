@@ -1,0 +1,4 @@
+testwebapp/bin/
+testwebapp/src/main/resources/static/
+testwebapp/src/main/webapp/js/applicationScripts.js
+testwebapp/src/main/webapp/js/applicationScripts.min.js
