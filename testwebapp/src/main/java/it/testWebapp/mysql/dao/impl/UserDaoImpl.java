@@ -16,7 +16,7 @@ import it.testWebapp.mysql.dao.UserDao;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-	@PersistenceContext(unitName="mysqlPU")
+	@PersistenceContext(unitName="testwebappPU")
 	private EntityManager entityManager;
 	
 	@Override

@@ -29,8 +29,8 @@ import it.testWebapp.model.User;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-		entityManagerFactoryRef = "mysqlEntityManager", 
-		transactionManagerRef = "mysqlTransactionManager", 
+		entityManagerFactoryRef = "testwebappEntityManager", 
+		transactionManagerRef = "testwebappTransactionManager", 
 		basePackages = "it.testWebapp.mysql.dao")
 public class TeswebappDbConfig {
 	/**
@@ -41,7 +41,7 @@ public class TeswebappDbConfig {
 	@Bean
 	@Primary
 	@ConfigurationProperties(prefix = "spring.first.datasource")
-	public DataSource mysqlDataSource() {
+	public DataSource testwebappDataSource() {
 		
 		DataSource dataSource = DataSourceBuilder.create().build();
 		
@@ -55,19 +55,19 @@ public class TeswebappDbConfig {
 	 * @return LocalContainerEntityManagerFactoryBean.
 	 */
 	@Primary
-	@Bean(name = "mysqlEntityManager")
-	public LocalContainerEntityManagerFactoryBean mysqlEntityManagerFactory(EntityManagerFactoryBuilder builder) {
+	@Bean(name = "testwebappEntityManager")
+	public LocalContainerEntityManagerFactoryBean testwebappEntityManagerFactory(EntityManagerFactoryBuilder builder) {
 		return builder
-					.dataSource(mysqlDataSource())
+					.dataSource(testwebappDataSource())
 					.properties(hibernateProperties())
 					.packages(User.class)
-					.persistenceUnit("mysqlPU")
+					.persistenceUnit("testwebappPU")
 					.build();
 	}
 	
 	@Primary
-	@Bean(name = "mysqlTransactionManager")
-	public PlatformTransactionManager mysqlTransactionManager(@Qualifier("mysqlEntityManager") EntityManagerFactory entityManagerFactory) {
+	@Bean(name = "testwebappTransactionManager")
+	public PlatformTransactionManager testwebappTransactionManager(@Qualifier("testwebappEntityManager") EntityManagerFactory entityManagerFactory) {
 		return new JpaTransactionManager(entityManagerFactory);
 	}
 	

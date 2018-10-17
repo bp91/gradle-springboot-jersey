@@ -27,8 +27,8 @@ import it.testWebapp.model.CustomObject;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-		entityManagerFactoryRef = "mysql2EntityManager", 
-		transactionManagerRef = "mysql2TransactionManager", 
+		entityManagerFactoryRef = "testDbEntityManager", 
+		transactionManagerRef = "testDbTransactionManager", 
 		basePackages = "it.testWebapp.mysql2.dao")
 public class TestdbDbConfig {
 	/**
@@ -38,7 +38,7 @@ public class TestdbDbConfig {
 	 */
 	@Bean
 	@ConfigurationProperties(prefix = "spring.second.datasource")
-	public DataSource mysql2DataSource() {
+	public DataSource testDbDataSource() {
 		return DataSourceBuilder
 					.create()
 					.build();
@@ -50,18 +50,18 @@ public class TestdbDbConfig {
 	 * @param builder an EntityManagerFactoryBuilder.
 	 * @return LocalContainerEntityManagerFactoryBean.
 	 */
-	@Bean(name = "mysql2EntityManager")
-	public LocalContainerEntityManagerFactoryBean mysql2EntityManagerFactory(EntityManagerFactoryBuilder builder) {
+	@Bean(name = "testDbEntityManager")
+	public LocalContainerEntityManagerFactoryBean testDbEntityManagerFactory(EntityManagerFactoryBuilder builder) {
 		return builder
-					.dataSource(mysql2DataSource())
+					.dataSource(testDbDataSource())
 					.properties(hibernateProperties())
 					.packages(CustomObject.class)
-					.persistenceUnit("mysql2PU")
+					.persistenceUnit("testDbPU")
 					.build();
 	}
 	
-	@Bean(name = "mysql2TransactionManager")
-	public PlatformTransactionManager mysql2TransactionManager(@Qualifier("mysql2EntityManager") EntityManagerFactory entityManagerFactory) {
+	@Bean(name = "testDbTransactionManager")
+	public PlatformTransactionManager testDbTransactionManager(@Qualifier("testDbEntityManager") EntityManagerFactory entityManagerFactory) {
 		return new JpaTransactionManager(entityManagerFactory);
 	}
 	

@@ -16,7 +16,7 @@ import it.testWebapp.mysql2.dao.CustomObjectDao;
 @Repository
 public class CustomObjectDaoImpl implements CustomObjectDao {
 	
-	@PersistenceContext(unitName="mysql2PU")
+	@PersistenceContext(unitName="testDbPU")
 	private EntityManager entityManager;
 
 	@Override
