@@ -19,6 +19,6 @@ public class CustomObjectService {
 	}
 	
 	public List<CustomObject> getCustomObjects() {
-		return customObjectDao.getCustomObject();
+		return customObjectDao.getCustomObjects();
 	}
 }

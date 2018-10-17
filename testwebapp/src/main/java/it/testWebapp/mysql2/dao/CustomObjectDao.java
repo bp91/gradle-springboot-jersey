@@ -12,5 +12,5 @@ public interface CustomObjectDao {
 	
 	public List<CustomObject> geCustomObjectsByName(String name);
 	
-	public List<CustomObject> getCustomObject();
+	public List<CustomObject> getCustomObjects();
 }
